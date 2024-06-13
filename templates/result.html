@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Assessment Result</h1>
+        <p>{{ result }}</p>
+        <p>Risk Level: {{ risk_level }}</p>
+        <p>Risk Percentage: {{ risk_percentage }}%</p>
+        <a href="{{ url_for('index') }}">Return to Home</a>
+    </div>
+</body>
+</html>

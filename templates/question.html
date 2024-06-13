@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Question</title>
+    <style>
+      body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background-repeat: no-repeat;
+}
+
+body {
+    background-size: contain;
+    background-position: right center; 
+    background-image: url('https://click2cure.com/wp-content/uploads/2023/10/beautiful-young-doctor-lady-pointing-with-hand-copy-space-studio-shot-isolated-blue-background_1-transformed-1.png');
+}
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+        }
+        label {
+            margin: 0 10px;
+            font-family:'Times New Roman', Times, serif;
+            font-weight: 400;
+        }
+        p {
+            color: red;
+        }
+        .form-check-inline .form-check-input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ question }}</h1>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+        <form action="{{ url_for('question', q=request.view_args.q) }}" method="post" class="needs-validation">
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="answer" id="yes" value="yes" class="form-check-input">
+                    <label for="yes" class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="answer" id="no" value="no" class="form-check-input">
+                    <label for="no" class="form-check-label">No</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Next</button>
+        </form>
+    </div>
+</body>
+</html>

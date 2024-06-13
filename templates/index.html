@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/index.css') }}">
+  
+    <title>HADSM</title>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="images/hivsign.png" alt="" width="40" height="40">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <button class="btn btn-outline-success my-2 my-sm-0 ml-auto" type="button">Login</button>
+        </div>
+     
+      </nav>
+
+      <div class="container-fluid p-0">
+        <div class="row no-gutters">
+          <div class="col-6 bg-image" style="background-image: url('https://static.vecteezy.com/system/resources/previews/024/585/326/non_2x/3d-happy-cartoon-doctor-cartoon-doctor-on-transparent-background-generative-ai-png.png');"></div>
+          <div class="col-6 text-container">
+            <p>"Welcome! By clicking the start button at the bottom, you'll embark on a journey of questions designed to guide you towards the best outcome. Each question presents you with a simple choice: yes or no. Your answers will shape the path ahead, so consider each question carefully before responding. The journey is yours to navigate, and the choices you make will lead you towards your desired destination. Let's begin!"</p>
+             <div class="btn-container">
+    
+             
+              &nbsp;
+              <form action="{{ url_for('start') }}" method="post">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Start Assessment</button>
+            </form>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <center><p>Please insert Your Hospital's Recognition Number</p></center>
+          
+          <input type="text" id="inputField" placeholder="Enter The Password" required style="width: 300px; margin: 0 auto; display: block;">
+          <br>
+          <button id="submitButton" class="btn btn-outline-success my-2 my-sm-0" required style="width: 150px; margin: 0 auto; display: block;">Submit</button>
+          <center><span id="error" style="color: red;"></span></center>
+      
+        </div>
+      </div> 
+      
+      </div> 
+      
+ 
+</body>
+
+</html>
+
+<Script>
+
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("openModalBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+document.getElementById("submitButton").addEventListener("click", function() {
+    var inputFieldValue = document.getElementById("inputField").value;
+    if (inputFieldValue === "120") {
+       
+        window.location.href = "login.html";
+    } else {
+    document.getElementById("error").innerText = "Incorrect password. Please try again.";
+    }
+});
+
+
+
+</Script>
